@@ -446,6 +446,33 @@ canvas{display:block;max-width:100%;height:auto;touch-action:none;cursor:crossha
 
   updStat();
 })();
+
+window.addEventListener('DOMContentLoaded', () => {
+    // 1. Get the URL parameters
+    const params = new URLSearchParams(window.location.search);
+    
+    // 2. Check if 'initial_url' exists in the link
+    // (Using your example key 'intial_url', though 'initial_url' is the correct spelling)
+    const imageUrl = params.get('intial_url') || params.get('initial_url');
+
+    if (imageUrl) {
+        // 3. Find the input box where users normally paste the URL
+        // (You need to ensure your input field has an ID, e.g., id="urlInput")
+        const inputField = document.getElementById('urlIn');
+        
+        if (inputField) {
+            // 4. Set the value
+            inputField.value = imageUrl;
+
+            // 5. Programmatically click the "Load URL" button
+            // (You need to ensure your button has an ID, e.g., id="loadBtn")
+            const loadButton = document.getElementById('loadBtn');
+            if (loadButton) {
+                loadButton.click();
+            }
+        }
+    }
+});
 </script>
 
 
